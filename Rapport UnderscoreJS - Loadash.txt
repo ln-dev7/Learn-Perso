@@ -1,0 +1,74 @@
+LODASH est un fichier JS qu'on integra dans notre code pour resoudre des problemes bien precis.
+
+Considerons :
+
+var demo = '  aze  '
+
+	_.trim(demo)  permettra d'enlever les espaces et resortira 'aze'
+
+var demo = '00333100'
+
+	_.trim(demo, '0') permettra de supprimer les zeros
+
+	_.pad(demo, 6) fera de tel sorte qu'on aie de l'espace, c'est le contraire de _.trim
+
+	_.pad(demo, 6, '0') ajoutera des 0 au debut et a la fin
+
+	_.padStart(demo, 6, '0') ajoutera des 0 au debut
+
+var demo = 'john doe'
+
+	_.capitalize(demo) renvoie John doe
+
+	_.snakeCase(demo) renvoie john_doe
+
+	_.kebabCase(demo) renvoie john-doe
+
+var demo = '__foo_bar__'
+
+	_.upperCase(demo) renvoie FOO BAR donc il enleve les _
+	
+	on a aussi ._lowerCase()
+
+var tab = [1, 2, 3]
+var tab2 = [4, 5]
+
+	_.concat(tab, tab2) rejoindra les deux tableaux en [1, 2, 3, 4, 5]
+
+	_.concat(tab, tab2, 6, 7) renvoie [1, 2, 3, 4, 5, 6, 7]
+
+	_.without(tab, 2) supprimera l'element 2 je n'ai pas dit l'element en position deux mais l'element lui mm
+
+	_.filter(tab, (e) => e > 1 ) ici enfait on conserve les elements dont la valeur est superieure a 1
+
+		en realite la syntaxe est : _.filter(tableau, condition_de_filtrage)
+
+		maintenant _.find(tableau, condition_de_filtrage) retournera le premier element de la condition
+
+var users = [
+	{'user' : 'LN', 'age' : 17},
+	{'user' : 'Main.c', 'age' : 19},
+	{'user' : 'Gourain', 'age' : 18}
+]
+
+	_.orderBy(users, ['user', 'age'], ['asc', 'desc']) Ceci va ranger ma liste users de tel maniere que le nom d'user soit dans l'ordre croissant et l'age decroissant
+
+	_.map(users, fonction_qui_effectuera_une_operation) Et elle retourne un nouveau tableau
+
+	_.sample(users) retoune un user aleatoires dans users
+					  
+	_.sampleSize(users, 2) retourne a son tour deux elements au hasard
+
+	_.unset(users, 'age') enlevera la partie des age
+
+	_.set(users, 'user.firstname', 'John') Changera le nom LN en John
+
+var tab = [1, 2, 3, 4]
+
+	_.chunk(tab, 2) divisera mon tableau en deux et de taille deux
+
+_.clone(user) = user2 
+	creera user2 avec les meme donnes de user
+
+ 
+

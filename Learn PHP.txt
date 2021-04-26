@@ -1,0 +1,197 @@
+-------------------- Mon rapport sur PHP --------------------
+
+N.B. Le point virgule est toujours neccessaire apres la fin de chaque instructions.
+
+<?php 
+	// Insertion du code PHP;
+?>
+
+-> Declaration des variables en PHP
+
+$nom_de_la_variable = valeur_de_la_variable ;
+
+Ils existent 5 types de variables:
+
+stirng ( "du texte" )
+int ( 42 )
+float ( 14.93278 )
+bool ( true ou false )
+null ou NULL 
+
+-> Afficher une variable 
+
+$age = 18;
+1-) echo "bonjour j'ai $age ans"; => Bonjour j'ai 18 ans
+2-) echo 'bonjour j\'ai'.$age.'ans' => Bonjour j'ai 18 ans
+
+Comme on le constate il y'a deux manieres d;afficher le meme texte qui differe de l'utilisation des ' ou des "  mais la plus utilise et la deuxieme methode.
+
+-> Les conditions
+
+if (condition){
+	// Instructiopns;
+}else{
+	// Instructions;
+}
+
+exemple :
+
+$age = 18;
+if ( $age >= 18 ){
+	echo "Hey tu es majeur"
+}else{
+	echo "Oh non tu es mineur"
+}
+
+-> Les boucles
+
+--> La boucle for
+
+for ( $i = 0; $i < valeur; $i++ ){
+	// Instructions;
+}
+
+--> boucle while
+
+while ( conditions ){
+	....
+}
+
+-> Les tableaux
+
+$nom = array('leo','ange','angel');
+
+echo $nom[0]; => leo
+
+$data = array('nom'=>'leonel','age'=>'18','ville'=>'yaounde');
+
+echo $data['nom']; => leonel
+
+On peut parcourir le tableau $nom en utilisant :
+
+foreach($nom as $i){
+	echo $i;
+}
+=> leo 
+   ange 
+   angel
+Dans ce cas $i reprenste les elements.
+
+Pour parcourir le tableau $data on fera ainsi:
+
+foreach($data as $i => $p ){
+	echo $i.'a pour valeur'.$p;
+}
+=> nom vaut leonel
+   age vaut 18
+   ville vaut yaounde
+}
+Dans ce cas $i represente les cles et $p reprenste les elements.
+
+-> Quelques methodes sur les tableaux
+
+array_key_exists => pour verifier si une cle existe dans l'array.
+
+in_array => pour verifier si une valeur existe dans l'array.
+
+array_search => pour recuperer la cle d'une valeur dans l'array.
+
+-> Quelques fonctions PHP
+
+--> strlen  : longueur d'une chaîne
+
+$phrase = 'Bonjour tout le monde ! Je suis une phrase !';
+$longueur = strlen($phrase);
+echo 'La phrase ci-dessous comporte ' . $longueur . ' caractères :<br />' . $phrase;
+
+--> str_replace  : rechercher et remplacer
+    str_replace  remplace une chaîne de caractères par une autre. Exemple :
+
+$ma_variable = str_replace('b', 'p', 'bim bam boum'); 
+echo $ma_variable;
+
+La fonction a remplace tout les 'b' par les 'p'.
+
+-->str_shuffle  : mélanger les lettres
+   Pour vous amuser à mélanger aléatoirement les caractères de votre chaîne !
+
+$chaine = 'Cette chaîne va être mélangée !';
+$chaine = str_shuffle($chaine);
+echo $chaine;
+
+Melange aleatoire de la phrase.
+
+-->strtolower  : écrire en minuscules
+   strtolower  met tous les caractères d'une chaîne en minuscules.
+
+$chaine = 'COMMENT CA JE CRIE TROP FORT ???';
+$chaine = strtolower($chaine);
+echo $chaine;
+
+strtoupper | Transforme plus tot de minuscule en majiscule.
+
+-->Récupérer la date
+   Nous allons découvrir la fonction qui renvoie l'heure et la date. Il s'agit de date  (un nom facile à retenir, avouez !). 
+   Cette fonction peut donner beaucoup d'informations. Voici les principaux paramètres à connaître :
+
+H => Heures
+i => Minutes
+d => Jours
+m => Mois
+Y => Annees 
+
+Il faut respecter les majiscules.
+
+// Enregistrons les informations de date dans des variables
+$jour = date('d');
+$mois = date('m');
+$annee = date('Y');
+$heure = date('H');
+$minute = date('i');
+// Maintenant on peut afficher ce qu'on a recueilli
+echo 'Bonjour ! Nous sommes le ' . $jour . '/' . $mois . '/' . $annee . 'et il est ' . $heure. ' h ' . $minute;
+
+Presentement chez moi ca m'affiche : Nous sommes le 25/04/2021et il est 22 h 10
+
+
+Il y'a encore de nombreuses fonctions propre a PHP qui sont dispo ici https://www.php.net/manual/fr/funcref.php mais pour l'instant on s'arrete la.
+
+--> Creer sa propre fonction PHP
+
+function nom_fonction(parametre){
+	// Instructions;
+}
+
+nom_fonction(parametre);
+
+Pour appeller la fonction.
+
+// Ci-dessous, la fonction qui calcule le volume du cône
+function VolumeCone($rayon, $hauteur)
+{
+   $volume = $rayon * $rayon * 3.14 * $hauteur * (1/3); // calcul du volume
+   return $volume; // indique la valeur à renvoyer, ici le volume
+}
+
+$volume = VolumeCone(3, 1);
+echo 'Le volume d\'un cône de rayon 3 et de hauteur 1 est de ' . $volume;
+
+-> Quelques erreurs courantes
+
+Je vous rencois ici => https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4240011-au-secours-mon-script-plante
+
+-> Inclure les portions de page
+
+<?php include("menus.php"); ?>
+
+Cette instructions permet d'inclure dans notre php actuel le contenu de la page menus.php
+
+->Nous avons le 'isset' generalement utilise dans les if qui permet de verifier si une variable existe.
+
+if(isset($mager)){...;}
+
+-> Transmettre les donnees avec url
+
+https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912799-transmettez-des-donnees-avec-lurl
+
+-> 

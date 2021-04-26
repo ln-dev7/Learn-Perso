@@ -1,0 +1,56 @@
+------- DEUXIEME RAPPORT REACT -------
+
+Bon ici J'ai cree dans le dossier 'src' un dossier 'components' et dans ceci 
+
+j'en ai cree un fichier appelle 'Mycars.js'
+
+le code:
+
+import React, {Component} from 'react';
+
+class Mycars extends Component{
+    render(){
+        return (
+            <div>
+                <h1>Salut j'utilise ReactJS</h1>
+                <h2>Une librairie tres cool</h2>
+            </div>
+        );
+    }
+}
+
+export default Mycars;
+
+Le but est d'afficher son contenu dans notre localhost.
+
+Etant dans 'App.js' on aura:
+
+import React, {Component} from 'react';
+import Mycars from './components/Mycars';
+import './App.css';
+
+class App extends Component{
+	render(){
+    return ( 
+		<div>
+			<Mycars />
+		</div>
+		);
+	}
+}
+
+export default App;
+
+Nous constatons dans 'App.js' l'existence d'une <Mycars /> en faite c'est cette div 
+
+qui nous permettra d'afficher le contenu de la classe 'Mycars'.
+
+Et dans notre localhost on aura bien un contenu :
+
+Salut j'utilise ReactJS
+Une librairie tres cool
+
+Voila nous avons importe dans 'App.js' un code ecrit dans 'Mycars.js' TROP GENIAL!!!!
+
+
+Prochain chapitre on voit les fonctions ... Bonne Idee ^_^

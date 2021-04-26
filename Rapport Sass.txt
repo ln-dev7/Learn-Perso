@@ -1,0 +1,214 @@
+------ DESOLE POUR LE MANQUE D'ACCENTS : MON CLAVIER EST QWERTY ------
+
+************************RAPPORT SUR SASS(SCSS)************************
+
+1-) Les Imbrications 
+
+
+Ils ont pour roles d'eviter la redondance de notre code, qui est souvent trouve dans nos codes CSS.
+
+-Exemple:
+
+--code css
+	.div { color : red; }
+	.div .btn{ color : green;}
+	.div a{ color : purple;}
+
+--code scss
+	.div{ 
+		color : red;
+		.btn{ color : green;}
+		a{ color : purple;}
+	}
+
+Nous constatons qu'avec scss on evite la duplication du .div a chaque fois.
+Maitenant s'il arrive qu'on nous demande de mettre un 'hover' sur le '.div a' en utilisant scss on pensera a ceci:
+
+.div{ 
+	:hover { color : yellow;}
+}
+
+Ceci est faux car le css croira que nous sommes entrain d'utiliser un selecteur css en imbrication, pour remedier a
+cela, on utilisera le caractere ' & ' qui nous permettra de dire que le & correspond en fait a la .div, je dirais 
+que ca fonctionne comme le 'this' en JS ou le 'self' en Python.
+
+Donc on aura :
+
+.div{ 
+	&:hover { color : yellow;}
+}
+
+
+2-) L'Heritage 
+
+
+Cette notion nous permet juste de dire qu'un selecteur agira comme un autre selecteur.
+
+Si nous avons :
+
+.div{ 
+	background-color: red;
+	color: blue;
+	&:hover { color : yellow;}
+}
+
+Alors si je veux creer dans mon code un button ayant cette meme caracteristique je ferai:
+
+.button{ 
+	@extend .div;
+}
+
+Il pourra nous arriver de vouloir utiliser toutes les proprietes de .div sauf sa couleur 
+alors on aura:
+
+.button{ 
+	@extend .div;
+	color : purple;
+}
+
+Nous avons aussi ce qu'on appelle les 'FAUX SELECTEURS', a la base il n'est pas compile 
+donc on pourra l'appliquer des donnees que nous voulons. il se declare ainsi:
+
+%nom_faux_slecteur{
+	proprietes ;
+}
+
+Mais on pourra l'utiliser avec le ' @extend %nom_faux_slecteur; '
+
+
+3-) Les Variables
+
+
+Nous connaissons tous ce que c'est qu'une variable, alors en scss on la declare ainsi:
+
+$nom_variable: attribu_de_la_variable; 
+
+Elle permet juste de stocker les attributs et puis la reutiliser dans notre code.
+
+-Exemple
+
+$couleur : red;
+$padding: 10px;
+
+.div{
+	color: $couleur;
+	padding: $padding + 25px;
+}
+
+Ici la div aura la couleur rouge et aura un padding de 35px car lea variables scss peuvent 
+effectuer des operations mathematiques.
+
+$taille = 700px;
+$ecran = "only screen and (min-width: #{$taille})";
+ 
+Cet exemple veut juste vous faire comprendre qu'on appelle la valeur d'une variable avec ' #{} '
+
+*Il existe deux fonctions neccesaire aussi qui sont ' darken ' et ' lighten '
+
+Elles permettent de gerer l'opacite d'une couleur, elle prend en parametre la couleur et puis 
+l'opacite ( en pourcentage) qu'on desire.
+
+.btn{ color: darken($couleur, 10)}
+.btn{ color: lighten($couleur, 10)}
+
+
+4-) Les Conditions
+
+Comme son nom l'indiaue il permet de gerer les conditions.
+
+-Syntaxe
+	
+	@if ( conditions ) {
+		proprites;
+	}@else {
+		proprites;
+	}
+
+Bon ... prenons un exemple pour eclaicir ce point.
+
+.btn{
+	@if ( lightness($couleur) > 50%) {
+		color: #000; 
+	}@else {
+		color: #fff;
+	}
+}
+
+Premierement nous avons utilise la fonction  ' lightness ' qui prend en entre une couleur et retourne 
+sa luminosite ( qui sera toujours comprise entre 0% et 100%).
+Alors nous disons que si la luminosite de ma couleur $couleur est superieure a 50%, on change de couleur 
+et on met le noir au cas contraire on met le blanc.
+
+
+5-) Les Boucles ( @for et @each )
+
+-Synthaxe du @for
+
+@for $i from debut through fin{
+	proprites;
+}
+
+-Exemple 
+
+@for $i from 1 through 4{
+	.btn-#{$i} { padding: ( $i * 10px ) }
+}
+
+Ceci generera le code ci dessous : 
+
+.btn-1 { padding: ( 10px ) }
+.btn-2 { padding: ( 20px ) }
+.btn-3 { padding: ( 30px ) }
+.btn-4 { padding: ( 40px ) }
+
+-Synthaxe du @each
+
+Nous prenons un exemple ...
+
+$couleurs:
+	rouge #ff0000,
+	vert #00ff00,
+	bleu #0000ff,
+
+@each $couleur in $couleurs {
+	.#{nth($couleur, 1)} {
+		color: nth($couleur, 2);	
+	}
+}
+
+Tout d'abord on a considere que dans notre html on avait trois classes a 
+savoir : .rouge .vert .bleu
+La bouble parcours la liste avec le $couleur puis on remarque un element 
+bizzare ( nth(...) ) alors, etant donne que les elements sont regroupes 
+en paires, le role de nth est de prendre en le compteur et un entier, 
+c'est cet entier qui decidera l'element a premdre ( rouge ou #ff000 )
+
+
+6-) Fonctions
+
+-Syntaxe
+
+creer la fonction
+	@function nom_de_la_fonction(parametres) { 
+		@return ... ; 
+	 }
+
+7-) Les Mixins
+
+-Syntaxe 
+
+creer la mixin
+	@mixin nom_mixin($parametre : valeur_par_defaut){    proprietes;	}
+
+utiliser la mixin
+	@include nom_mixin( valeur );
+
+
+
+NB.  --> En dehors du commentaire classique du css, le scss nous donne acces a un autre commentaire : ' //votre_commentaire '
+	il ne s'etend que sur une seule ligne.
+
+     --> Il est possible d'importer les fichiers scss a traveres ' @import source_du_fichier ' 
+	comme ca votre fichier aura toutes les fonctions et/ou attributs utilises dans l'autre fichier scss
+ 
+

@@ -1,0 +1,89 @@
+------- PREMIER RAPPORT REACT -------
+
+React est une librairie JavaScript cree par Facebook en 2013
+
+
+1-) Creer une application React ( Sous Windows )
+
+
+Tout projet react a besoin d'une installation de nodejs, son installation est disponible sur nodejs.org
+Et la verification de l'installation se fait avec :
+
+-> node --version ou -> node -v
+
+Si l'invite de commande retourne un resultat c'est que l'installation a bien etee faite.
+
+L'installation de node nous donne acess a npm ( Qui peut etre verifie avec -> npm --version ou -> npm -v )
+
+Ensuite nous partons dans le cmd plus precisement dans le dossier ou nous voulons creer notre App React
+et puis on saisit la commande :
+
+-> npm install create-react-app
+
+On peut verifier la version en utilisant :
+
+-> create-react-app --version
+
+l'installation etant finie nous pouvons creer notre dossier React avec :
+
+-> create-react-app nom_du_dossier
+
+Pour executer notre application React on utilise la commande :
+
+-> npm start
+
+Et puis on aura sur notre navigateur principal une feetre ouverte sous le : http://localhost:3000/
+
+Voila !!! Notre Application React a bien ete cree 🤠.
+
+
+2-) Dependances REACT
+
+
+Mous devons savoir que dans le dossier qu'on a cree il existe un fichier appelle
+
+package.json, dans ce fichier il existe un dictionnaire: dependencies, il nous 
+
+servira a importer les dependaces de REACT dans App.js avec la commandes
+
+import React, {nom_du_composant_a_importer} from 'react';
+
+ 
+3-) Les Composants REACT
+
+
+Premierement nous devons savoir que les modifications se font dans App.js
+
+Ils existent deux types de composants React a savoir  :
+
+-> Les State Component, Ils se basent sur les Class et les State.
+-> UI Component, Qui se basent a  leurs tours sur les Functions.
+
+Nous allons afficher un Hello World avec les class ( Dans App.js )
+
+import React, {Component} from 'react';
+import './App.css';
+
+class App extends Component{
+	render(){
+    return ( <div> Hello World </div>);
+	}
+}
+
+export default App;
+
+Vous avez essaye ? c'est genial norrrrr !!!
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

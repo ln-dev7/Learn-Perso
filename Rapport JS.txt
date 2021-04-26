@@ -1,0 +1,109 @@
+=> window.setInterval(nom_fonction ou fonction, duree d'execution-en milliSeconde) // il execute la fonction toute les intervalles de temps
+
+=> window.serTimeout(nom_fonction ou fonction, duree d'execution-en milliSeconde) // il execute le fonction une seule fois 
+
+I- SELECTIONNER LES ELEMENTS
+
+=> document.getElementById('id_de_la_balise') // permet de selectionner la balise qui porte ce id
+
+=> document.getElementsByClassName('class de ou des balises') // permet de selectionner tout les elements qui ont cette classe et renvoie un tableau les contenants
+
+=> document.getElementsByTagName('le nom de la balise') // permet de selectionner toutes ces balises et renvoie un tableau les contenants
+
+=> document.querySelector('.nom_classe') // selectionner les elements avec cette classe
+
+=> document.querySelector('#nom_id') // selectionner l'element avec ce id
+
+=> document.querySelectorAll('nom_balise') // permet de selectionner toutes ces balises et renvoie un tableau les contenants
+
+II- INTERAGIR AVEC LES ELEMENTS
+
+<p class="nom_classe"> Bonjour les amis </p>
+je cree une variable ou je vais stocker mon element que je veux selectionner : var p = document.querySelector('.nom_classe')
+
+=> p.className = "nouveau_nom" // change le nom de classe de l'element en -nouveau_nom-
+
+=> p.classList // il donne acces a un tableau contenant toutes les classes de l'element
+
+=> p.classList.add('red') // ajoute la classe -red- a mon element
+
+=> p.classList.remove('red') // Retire la classe -red- a mon element
+
+=> p.classList.contains('red') // permet de verifier si il y'a la classe -red- dans mon element, il renvoie une valeur booleen (true ou false) -Dans ce cas il doit renvoyer false
+
+=> p.classList.toggle('red') // il retire la class -red- puis l'enleve
+
+=> p.style.fontSize = "20px" // permet de changer la taille de mon elemet en 20px de la meme maniere qu'on peut mettre -p.style.fontFamilly- ...
+
+=> p.innerHTML = "<h1>Bonsoir</h1> les amis" // il va changer le contenu de mon paragraphe en -Bonsoir les amis- en tenant compte des balises html ( cad en appliquant leur proprietees )
+
+=> p.innerText = "<h1>Bonsoir</h1> les amis" // il va changer le contenu de mon paragraphe en -<h1>Bonsoir</h1> les amis- sans tenir compte des balises html
+
+=> p.textContent // meme chose que -p.innerText-
+
+=> p.children // recupere sous forme de tableau tout les efants de cet element
+
+=> p.childElementCount // renvoi le nombre d'element enfant 
+
+=> p.firstElementChild // renvoi le premier enfant de l'element
+
+=> p.lastElementChild // ... dernier element 
+
+=> ul.querySelector('li:nth-child(3)') // recupere le 3e -li- du -ul-
+
+=> considerons que nous avons stocke le li numero 3 dans la variable -li- alors :
+
+	li.previousElementSibling // permet de selectionner le 2e -li- de l'element parent
+
+	li.nextElementSibling // permet de selectionner le 4e -li- de l'element parent
+
+=> li.parentElement // recupere l'element par du li
+
+=> si je veux supprimmer le -li- sachant qu'il est un enfant du -ul- j'utilise :
+
+	li.parentElement.removeChild(li)
+
+	li.parentElement.appendChild(li) // ajouter un li
+
+=> var a =  document.createElement('li') // permet de creer un nouveau element et notament -li- dans ce cas
+
+=> li.parentElement.replaceChild('li:nth-child(3)', 'li:nth-child(1)' ) // l'element 1 sera supprime et sera remplace par le 3
+
+=> li.parentElement.insertBefore(a, li) // ca insere l'element -a- avant l'element -li-
+
+III- LES EVENEMENTS 
+
+=> p.addEventListener(evenement, fonction_a_executer)
+
+=> p.removeEventListener(evenement, fonction_a_executer) // il enleve le -addEvenListener-
+
+=> this
+	Lorsqu'un écouteur est appellé la variable this fera systématiquement référence à l'élément sur lequel on écoute l'évènement (équivalent à currentTarget).
+
+=> element.addEventListener('click', function (e) {
+
+    	e.preventDefault() // Annule l'évènement
+
+    	e.stopPropagation() // Empèche l'évènement de remonter vers les éléments parents
+
+    	e.target // contient l'élément sur lequel on a cliqué
+
+    	e.currentTarget // contient l'élément sur lequel on a greffé l'écouteur 
+
+	var a = String.fromCharcode(e.keycode) // ...
+
+   })
+
+=> keyCode // generalement utilise dans les formulaires, c'est un nombre code qui a pour valeur le text entre dans un champ 
+
+=> considerons -nom- la variable ou on a stocke un input texte
+
+	nom.value // donne la valeur du texte saisie
+
+=> variable.checked // retourne true ou false correspondant si on coche ou pas un checkbox d'un formulaire
+
+=> variable.selectedOptions // cree un tableau avec les options selectionees dans une balise select d'un formulaire
+
+=> variable.selectedOptions.value // ... sa valeur
+
+=> 

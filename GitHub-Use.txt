@@ -1,0 +1,28 @@
+	=> Ajouter son projet sur github
+
+-> Ouvrir gitBash
+-> acceder au dossier du projet
+-> git init
+-> git add . ( pour selctionner tout les elements du dossier )
+   git add index.html ( pour specifier )
+   git add -A ( pour mettre les nouveaux fichier )
+-> git commit -m "decrire ce dont on a change"
+-> git log ( pour voir l'historique )
+-> git remote add origin lien_vers_notre_ripository_de_github ( ex: https://github.com/ln-dev7/DeveloperCenter.git )
+-> git push origin master
+-> git fetch ( absorber les nouveautees )
+-> git clone lien_vers_notre_ripository_de_github ( ex: https://github.com/ln-dev7/PortFolio.git ) 
+	pour cloner dans notre machine
+
+	=> Gestion des branches
+
+N.B. la branche principal est generalement "master"
+-> git branch nom_nouvelle_branch ( pour creer la branch )
+-> git checkout nom_nouvelle_branch ( se rendre sur la branch )
+-> git push --set-upstream origin nom_nouvelle_branch ( envoyer la branche sous le depot enn ligne )
+-> git branch -d nom_nouvelle_branch ( supprimer la branche )
+-> git merge nom_nouvelle_branch ( envoyer les modif de nom_nouvelle_branch de la branche cree a la branche master )
+
+
+
+leonelngoya@gmail.com
