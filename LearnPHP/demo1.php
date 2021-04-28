@@ -18,5 +18,12 @@
     <p>
         <a href="demo2.php?nom=Ngoya&amp;prenom=Leonel&amp;repeter=5">Dis-moi bonjour !</a>
     </p>
+    <?php
+        // 1 : on ouvre le fichier
+        $monfichier = fopen('demo.txt', 'r+');
+         // 2 : on fera ici nos opérations sur le fichier...
+        // 3 : quand on a fini de l'utiliser, on ferme le fichier
+        fclose($monfichier);
+    ?>
 </body>
 </html>
