@@ -194,4 +194,23 @@ if(isset($mager)){...;}
 
 https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912799-transmettez-des-donnees-avec-lurl
 
--> 
+https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires
+
+-> Nous avons aussi le 'int'
+ 
+   $nom = "leo";
+   $nb = 14;
+   $age = (int) $nom; => retournera 0
+   $age = (int) $nb; => retournera 14
+
+-> Pour échapper le code HTML, il suffit d'utiliser la fonction htmlspecialchars  qui va transformer les chevrons des balises HTML <>  en &lt;  et &gt;
+respectivement. Cela provoquera l'affichage de la balise plutôt que son exécution.
+
+-> strip_tags .. Pour retirer les balises html dans un champ entre par le visiteeur.
+
+-> Quand notre formulaire possede l'envoie d'un fichier nous devons inserer enctype="multipart/form-data" dans le form du formulaire.
+
+-> in_array($age, $age_etudiant)
+	Permet de verifier si $age appartient a $age_etudiant ( etant un tableau bien sur )
+
+
