@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+#minichat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#pseudo, #messages {
+  margin: 5px 0;
+  padding: 15px 15px 15px 10px;
+  width: 400px;
+  background: #f5fbf7;
+  border-bottom: solid 1px #222;
+  border-top: solid 0.5px rgba(34, 34, 34, 0.1);
+  border-left: solid 0.5px rgba(34, 34, 34, 0.1);
+  border-right: solid 0.5px rgba(34, 34, 34, 0.1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+  overflow: hidden;
+  font-weight: bold;
+  transition: background 1s;
+}
+#pseudo:focus, #messages:focus {
+  background: rgba(68, 212, 152, 0.25);
+  border-bottom: solid 1px #44d498;
+  color: #222;
+}
+
+#envoyer {
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 400px;
+  background-color: #44d498;
+  color: white;
+  transition: box-shadow 1s;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+#envoyer:hover {
+  box-shadow: 4px 4px 4px rgba(34, 34, 34, 0.25);
+  cursor: pointer;
+}
+
+#all-messages {
+  padding: 20px;
+  background: #f5fbf7;
+  border: solid 0.5px rgba(34, 34, 34, 0.25);
+  border-radius: 2px;
+}
+#all-messages-message {
+  padding: 10px;
+  margin: 5px;
+  background: #f5f5f5;
+  border: solid 0.5px #222;
+  border-radius: 5px;
+}
+#all-messages button {
+  padding: 5px;
+  margin-left: 10px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  background: red;
+  transition: box-shadow 0.5s;
+}
+#all-messages button:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 4px rgba(34, 34, 34, 0.25);
+}
+
+/*# sourceMappingURL=minichat.css.map */

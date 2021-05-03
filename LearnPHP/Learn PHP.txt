@@ -233,13 +233,22 @@ On peut utiliser deux astuces pour lire dans une BD
     { ... }
     $reponse->closeCursor();
 
---> $req = $bdd->prepare('SELECT nom, prix, console FROM jeux_video WHERE possesseur = :possesseur AND prix <= :prixmax AND console = :console');
+--> REQUETE PREPAREE
+
+    $req = $bdd->prepare('SELECT nom, prix, console FROM jeux_video WHERE possesseur = :possesseur AND prix <= :prixmax AND console = :console');
     $req->execute(array('possesseur' => $_GET['possesseur'], 'prixmax' => $_GET['prix_max'], 'console' => $_GET['console']));
     while ($donnees = $req->fetch())
     { ... }
     $req->closeCursor();
 
+	les valeurs doivent etre modifie dans l' URL vu que nous utilisons la methode GET
+
 -> ECRIRE DANS VOTRE BD
 
-$bdd->exec(instructions_SQL);
+--> $bdd->exec(instructions_SQL);
 
+--> On peut aussi faire une requete preparee ici de la meme maniere que la fois precedente
+
+-> $reponse = $bdd->query('SELECT nom FROM jeux_video') or die(print_r($bdd->errorInfo()));
+ 
+   Mettre cet attribue pour afficher les erreurs MySQL

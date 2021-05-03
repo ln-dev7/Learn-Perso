@@ -1,0 +1,93 @@
+$blanc: #fff;
+$vert: #44d498;
+$orange: #f29838;
+$rouge: red;
+$noir: #222;
+$gris: #f5f5f5;
+$blancgris: #f5fbf7;
+$grisnoir: #aaa;
+
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: $gris;
+}
+
+#minichat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pseudo, #messages{
+    margin: 5px 0;
+    padding: 15px 15px 15px 10px;
+    width: 400px;
+    background: $blancgris;
+    border-bottom: solid 1px $noir;
+    border-top: solid 0.5px rgba($color: $noir, $alpha: 0.1);
+    border-left: solid 0.5px rgba($color: $noir, $alpha: 0.1);
+    border-right: solid 0.5px rgba($color: $noir, $alpha: 0.1);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    outline: none;
+    overflow: hidden;
+    font-weight: bold;
+    transition: background 1s;
+    &:focus{
+        background: rgba($color: $vert, $alpha: 0.25);
+        border-bottom: solid 1px $vert;
+        color: $noir;
+    }
+}
+  
+#envoyer{
+    padding: 15px;  
+    margin-top: 10px;
+    margin-bottom: 15px; 
+    width: 400px;
+    background-color: $vert; 
+    color: rgb(255, 255, 255);
+    transition: box-shadow 1s;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    &:hover{
+      box-shadow: 4px 4px 4px rgba($color: $noir, $alpha: 0.25);
+      cursor: pointer;
+    } 
+}
+
+#all-messages{
+    padding: 20px;
+    background: $blancgris;
+    border: solid 0.5px rgba($color: $noir, $alpha: 0.25);
+    border-radius: 2px;
+    &-message{
+        padding: 10px;
+        margin: 5px;
+        background: $gris;
+        border: solid 0.5px $noir;
+        border-radius: 5px;
+    }
+    button{
+        padding: 5px;
+        margin-left: 10px;
+        border: none;
+        color: $blanc;
+        border-radius: 5px;
+        background: red;
+        transition: box-shadow 0.5s;
+        &:hover{
+            cursor: pointer;
+            box-shadow: 4px 4px 4px rgba($color: $noir, $alpha: 0.25);
+        }
+    }
+}

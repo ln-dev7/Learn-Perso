@@ -57,6 +57,13 @@
 
         $req->closeCursor();
 
+        /*// On ajoute une entrée dans la table jeux_video
+        $bdd->exec('INSERT INTO jeux_video(nom, possesseur, console, prix, nbre_joueurs_max, commentaires) VALUES(\'Battlefield 1942\', \'Patrick\', \'PC\', 45, 50, \'2nde guerre mondiale\')');
+
+        echo 'Le jeu a bien été ajouté !';*/
+
+       $bdd->exec('UPDATE jeux_video SET prix = 25, nbre_joueurs_max = 2, nom = \'PES 2021\', commentaires = \'Meilleur jeu de football\' WHERE ID = 52')
+
     ?>
 </body>
 </html>
