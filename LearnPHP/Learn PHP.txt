@@ -213,4 +213,33 @@ respectivement. Cela provoquera l'affichage de la balise plutôt que son exécut
 -> in_array($age, $age_etudiant)
 	Permet de verifier si $age appartient a $age_etudiant ( etant un tableau bien sur )
 
+-> SE CONNECTER A UNE BD
+
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=nom_de_la_bd;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
+-> LIRE DANS VOTRE BD
+
+On peut utiliser deux astuces pour lire dans une BD
+
+--> $reponse = $bdd->query(instructions_SQL);
+    while ($donnees = $reponse->fetch())
+    { ... }
+    $reponse->closeCursor();
+
+--> $req = $bdd->prepare('SELECT nom, prix, console FROM jeux_video WHERE possesseur = :possesseur AND prix <= :prixmax AND console = :console');
+    $req->execute(array('possesseur' => $_GET['possesseur'], 'prixmax' => $_GET['prix_max'], 'console' => $_GET['console']));
+    while ($donnees = $req->fetch())
+    { ... }
+    $req->closeCursor();
+
+-> ECRIRE DANS VOTRE BD
+
+$bdd->exec(instructions_SQL);
 
