@@ -61,6 +61,19 @@ body {
   background: #f5fbf7;
   border: solid 0.5px rgba(34, 34, 34, 0.25);
   border-radius: 2px;
+  /*button{
+      padding: 5px;
+      margin-left: 10px;
+      border: none;
+      color: $blanc;
+      border-radius: 5px;
+      background: red;
+      transition: box-shadow 0.5s;
+      &:hover{
+          cursor: pointer;
+          box-shadow: 4px 4px 4px rgba($color: $noir, $alpha: 0.25);
+      }
+  }*/
 }
 #all-messages-message {
   padding: 10px;
@@ -68,19 +81,6 @@ body {
   background: #f5f5f5;
   border: solid 0.5px #222;
   border-radius: 5px;
-}
-#all-messages button {
-  padding: 5px;
-  margin-left: 10px;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  background: red;
-  transition: box-shadow 0.5s;
-}
-#all-messages button:hover {
-  cursor: pointer;
-  box-shadow: 4px 4px 4px rgba(34, 34, 34, 0.25);
 }
 
 /*# sourceMappingURL=minichat.css.map */

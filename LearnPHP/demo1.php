@@ -62,7 +62,7 @@
 
         echo 'Le jeu a bien été ajouté !';*/
 
-       $bdd->exec('UPDATE jeux_video SET prix = 25, nbre_joueurs_max = 2, nom = \'PES 2021\', commentaires = \'Meilleur jeu de football\' WHERE ID = 52')
+       /*$bdd->exec('UPDATE jeux_video SET prix = 25, nbre_joueurs_max = 2, nom = \'PES 2021\', commentaires = \'Meilleur jeu de football\' WHERE ID = 52')*/
 
     ?>
 </body>

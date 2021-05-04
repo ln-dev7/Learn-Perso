@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="minichat.css">
+    <link rel="icon" href="minichat.png">
     <title>MiniChat</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
             // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
             while ($donnees = $reponse->fetch())
             {
-                echo '<div id="all-messages-message"><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['messages']) . '<button>Supprimer</button></div>';
+                echo '<div id="all-messages-message"><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['messages']) . '</div>';
             }
 
             $reponse->closeCursor();
